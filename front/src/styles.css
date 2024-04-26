@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.btn-retour, .btn-submit {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    /* margin-right: auto;
+    margin-left: auto;
+    justify-content: center; */
+    display:block;
+    margin: 0 auto;
+    width: 100px;
+}
+
+#btn-create-groupe {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    display:block;
+    margin: 0 auto;
+    width: 300px;
+}

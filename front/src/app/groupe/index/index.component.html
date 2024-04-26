@@ -1,0 +1,44 @@
+<div class="container">
+    <h1>Liste des groupes</h1>
+
+    <a href="#" routerLink="/groupe/create" class="btn btn-primary" id="btn-create-groupe">Création d'un groupe</a>
+
+    <br>
+    <a href="#" routerLink="/groupe/import" class="btn btn-success " id="btn-create-groupe">Import de groupes</a>
+    <br>
+
+    <table class="table table-striped">
+        <thead>
+              <tr>
+                  <th>Nom</th>
+                  <th>Origine</th>
+                  <th>Ville</th>
+                  <th>Année début</th>
+                  <th>Année séparation</th>
+                  <th>Fondateurs</th>
+                  <th>Nombre de membres</th>
+                  <th>Courant</th>
+                  <th>Présentation</th>
+                  <th width="250px">Action</th>
+              </tr>
+        </thead>
+        <tbody>
+              <tr *ngFor="let groupe of groupes">
+                <td>{{ groupe.nom }}</td>
+                <td>{{ groupe.origine }}</td>
+                <td>{{ groupe.ville }}</td>
+                <td>{{ groupe.anneeDebut }}</td>
+                <td>{{ groupe.anneeSeparation }}</td>
+                <td>{{ groupe.fondateurs }}</td>
+                <td>{{ groupe.membres }}</td>
+                <td>{{ groupe.courant }}</td>
+                <td>{{ groupe.presentation }}</td>
+                <td>
+                  <a href="#" [routerLink]="['/groupe/', groupe.id, 'view']" class="btn btn-info">Voir</a>
+                  <a href="#" [routerLink]="['/groupe/', groupe.id, 'edit']" class="btn btn-primary">Modifier</a>
+                  <button type="button" (click)="deleteGroupe(groupe.id)" class="btn btn-danger">Supprimer</button>
+                </td>
+              </tr>
+        </tbody>
+    </table>
+ </div>

@@ -1,0 +1,134 @@
+<div class="container">
+    <h1>Modification d'un groupe</h1>
+
+    <a href="#" routerLink="/groupe/index" class="btn btn-primary btn-retour">Retour</a>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input
+                formControlName="nom"
+                id="nom"
+                type="text"
+                [(ngModel)]="groupe.nom"
+                class="form-control"
+            />
+            <div *ngIf="f['nom'].touched && f['nom'].invalid" class="alert alert-danger">
+                <div *ngIf="f['nom'].errors && f['nom'].errors['required']">Le nom est manquant(e).</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="origine">Origine</label>
+            <input
+                formControlName="origine"
+                id="origine"
+                type="text"
+                [(ngModel)]="groupe.origine"
+                class="form-control"
+            >
+            <div *ngIf="f['origine'].touched && f['origine'].invalid" class="alert alert-danger">
+                <div *ngIf="f['origine'].errors && f['origine'].errors['required']">L'origine est manquant(e).</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="ville">Ville</label>
+            <input
+                formControlName="ville"
+                id="ville"
+                type="text"
+                [(ngModel)]="groupe.ville"
+                class="form-control"
+            >
+            <div *ngIf="f['ville'].touched && f['ville'].invalid" class="alert alert-danger">
+                <div *ngIf="f['ville'].errors && f['ville'].errors['required']">La ville est manquant(e).</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="anneeDebut">Année début</label>
+            <input
+                formControlName="anneeDebut"
+                id="anneeDebut"
+                type="number"
+                [(ngModel)]="groupe.anneeDebut"
+                class="form-control"
+            >
+            <div *ngIf="f['anneeDebut'].touched && f['anneeDebut'].invalid" class="alert alert-danger">
+                <div *ngIf="f['anneeDebut'].errors && f['anneeDebut'].errors['required']">L'année de début est manquant(e).</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="anneeSeparation">Annee séparation</label>
+            <input
+                formControlName="anneeSeparation"
+                id="anneeSeparation"
+                type="number"
+                [(ngModel)]="groupe.anneeSeparation"
+                class="form-control"
+            >
+            <div *ngIf="f['anneeSeparation'].touched && f['anneeSeparation'].invalid" class="alert alert-danger">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="fondateurs">Fondateurs</label>
+            <input
+                formControlName="fondateurs"
+                id="fondateurs"
+                type="text"
+                [(ngModel)]="groupe.fondateurs"
+                class="form-control"
+            >
+            <div *ngIf="f['fondateurs'].touched && f['fondateurs'].invalid" class="alert alert-danger">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="membres">Nombre de membres</label>
+            <input
+                formControlName="membres"
+                id="membres"
+                type="number"
+                [(ngModel)]="groupe.membres"
+                class="form-control"
+            >
+            <div *ngIf="f['membres'].touched && f['membres'].invalid" class="alert alert-danger">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="courant">Courant musical</label>
+            <input
+                formControlName="courant"
+                id="courant"
+                type="text"
+                [(ngModel)]="groupe.courant"
+                class="form-control"
+            >
+            <div *ngIf="f['courant'].touched && f['courant'].invalid" class="alert alert-danger">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="presentation">Présentation</label>
+            <input
+                formControlName="presentation"
+                id="presentation"
+                type="text"
+                [(ngModel)]="groupe.presentation"
+                class="form-control"
+            >
+            <div *ngIf="f['presentation'].touched && f['presentation'].invalid" class="alert alert-danger">
+            </div>
+        </div>
+
+        <br>
+        <!-- <button class="btn btn-primary btn-submit" type="submit" [disabled]="!form.valid">Enregistrer</button> -->
+        <button class="btn btn-primary btn-submit" type="submit">Enregistrer</button>
+        <br>
+    </form>
+</div>

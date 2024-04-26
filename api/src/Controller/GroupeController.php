@@ -36,7 +36,7 @@ class GroupeController extends AbstractController
     ) {
     }
 
-    #[Route('/import_groupes', name: 'app_import_groupes')]
+    #[Route('/groupes/import', name: 'app_import_groupes')]
     public function importGroupes(Request $request): JsonResponse
     {
         $file = $request->files->get('file');

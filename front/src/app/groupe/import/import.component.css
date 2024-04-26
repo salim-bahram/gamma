@@ -1,0 +1,15 @@
+
+#fileUpload {
+    padding-top: 30px;
+    margin-bottom: 40px;
+    display:block;
+    margin: 0 auto;
+    width: 300px;
+}
+
+.btn-import {
+    margin-bottom: 40px;
+    display:block;
+    margin: 0 auto;
+    width: 150px;
+}
