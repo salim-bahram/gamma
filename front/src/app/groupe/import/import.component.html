@@ -4,10 +4,12 @@
 
     <a href="#" routerLink="/groupe/index" class="btn btn-primary btn-retour">Retour</a>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit(file)">
-        <input type="file" #fileUpload id="fileUpload" name="fileUpload">
-        <br>
-        <button class="btn btn-primary btn-import" type="submit">Lancer l'import</button>
-        <br>
-    </form>
+    <div class="form-group">
+        <input type="file" #fileUpload id="fileUpload" name="fileUpload" (change)="onFileChange($event)">
+    </div>
+    <br>
+    <div class="form-group">
+        <button class="btn btn-primary btn-import" (click)="onSubmit()">Lancer l'import</button>
+    </div>
+    <br>
 </div>

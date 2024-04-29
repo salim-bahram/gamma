@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GroupeService } from '../groupe.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,41 +8,32 @@ import { Router } from '@angular/router';
   styleUrls: ['./import.component.css']
 })
 export class ImportComponent implements OnInit {
-  @ViewChild("fileUpload", {static: false})
-
-  public form!: FormGroup;
-  file!: File;
-  fileUpload!: ElementRef;
+  selectedFiles?: FileList;
+  currentFile?: File;
 
   constructor(
     public groupeService: GroupeService,
-    private router: Router,
-    private fb: FormBuilder
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.form = this.fb.group({
-      file: null
-    });
   }
 
-  onSubmit(file: File) {
-    console.log('r');
-    this.fileUpload.nativeElement.value = '';
-    this.groupeService.import(file).subscribe((res:any) => {
-      this.router.navigateByUrl('groupe/index');
-    });
+  onFileChange(event: any) {
+    this.selectedFiles = event.target.files;
   }
 
-  onClick() {
-    const fileUpload = this.fileUpload.nativeElement;fileUpload.onchange = () => {
-      const file = fileUpload.file;
-      this.onSubmit(file);
-    };
-    fileUpload.click();
-  }
+  onSubmit() {
+    if (this.selectedFiles) {
+      const file: File | null = this.selectedFiles.item(0);
 
-  // clearFile() {
-  //   this.fileToUpload.value = null;
-  // }
+      if (file) {
+        this.currentFile = file;
+
+        this.groupeService.import(file).subscribe((res:any) => {
+          this.router.navigateByUrl('groupe/index');
+        });
+      }
+    }
+  }
 }

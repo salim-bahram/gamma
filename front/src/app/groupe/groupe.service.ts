@@ -79,11 +79,7 @@ export class GroupeService {
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
 
-    return this.httpClient.post(this.apiURL + '/groupes/import', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    })
+    return this.httpClient.post(this.apiURL + '/groupes/import', formData)
 
     .pipe(
       catchError(this.errorHandler)
